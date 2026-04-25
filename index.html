@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Quiz — Valentina Vovk Target</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ HERO (DOOR EFFECT) ═══════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="mountain.jpg" alt="" class="hero-bg-img" />
+    </div>
+
+    <nav class="hero-nav">
+      <span class="brand">valentina vovk · target</span>
+      <ul>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="door door-left"></div>
+    <div class="door door-right"></div>
+
+    <div class="hero-title">
+      <h1>
+        <span class="line"><span class="line-inner line-inner__color">scroll</span></span>
+        <span class="line"><span class="line-inner">to this previous <br>step</span></span>
+      </h1>
+      <p class="hero-sub">Where imagination breaks through the boundary of the possible.</p>
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-line"></span>
+      <span>Scroll to enter</span>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT — alternating text blocks ═════════════════ -->
+  <section id="about">
+    <div class="about-feed">
+
+      <div class="a-item from-right">
+        <div class="a-body">
+          <h2 class="a-title">Стратегія</h2>
+          <p class="a-text">Ми глибоко аналізуємо вашу нішу та будуємо точний портрет цільової аудиторії — щоб кожна гривня бюджету працювала на результат, а не просто витрачалась.</p>
+        </div>
+        <span class="a-num">01</span>
+      </div>
+
+      <div class="a-item from-left">
+        <span class="a-num">02</span>
+        <div class="a-body">
+          <h2 class="a-title">Таргетинг</h2>
+          <p class="a-text">Точне налаштування аудиторій у Facebook, Instagram та Google. Показуємо рекламу лише тим, хто справді готовий до покупки — у потрібний час і в потрібному місці.</p>
+        </div>
+      </div>
+
+      <div class="a-item from-right">
+        <div class="a-body">
+          <h2 class="a-title">Аналітика</h2>
+          <p class="a-text">Щоденний моніторинг показників, A/B тестування креативів та офферів. Рішення приймаємо на основі даних — не здогадок. Бачимо що працює і посилюємо це.</p>
+        </div>
+        <span class="a-num">03</span>
+      </div>
+
+      <div class="a-item from-left">
+        <span class="a-num">04</span>
+        <div class="a-body">
+          <h2 class="a-title">Масштабування</h2>
+          <p class="a-text">Знайшли прибуткову зв'язку — поступово збільшуємо бюджет, зберігаючи стабільну вартість результату. Контрольоване зростання без зриву в перевитрати.</p>
+        </div>
+      </div>
+
+      <div class="a-item from-right">
+        <div class="a-body">
+          <h2 class="a-title">Результат</h2>
+          <p class="a-text">Зростання продажів, впізнаваність бренду та стабільний потік теплих клієнтів — ось що будуємо разом. Не разова угода, а довгострокова система.</p>
+        </div>
+        <span class="a-num">05</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ QUIZ ════════════════════════════════════════════════ -->
+  <section id="quiz">
+
+    <div class="quiz-progress">
+      <div class="quiz-progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="quiz-header">
+      <button class="quiz-prev" id="prevBtn" disabled>← Назад</button>
+      <span class="quiz-counter">
+        <span id="currentQ">1</span> / <span id="totalQ">15</span>
+      </span>
+    </div>
+
+    <div class="quiz-feed" id="quizFeed"></div>
+
+    <div class="quiz-results" id="results" style="display:none">
+      <h2 class="quiz-results-title">Дякуємо!</h2>
+      <div class="quiz-summary" id="resultsSummary"></div>
+      <button class="quiz-restart" id="restartBtn">Пройти знову</button>
+    </div>
+
+  </section>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- App -->
+  <script src="main.js"></script>
+  <script src="questions.js"></script>
+  <script src="quiz-animations.js"></script>
+  <script src="quiz-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => QuizUI.init());
+  </script>
+</body>
+</html>
