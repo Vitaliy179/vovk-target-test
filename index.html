@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lead Quiz — Valentina Vovk Target</title>
+  <title>Valentina Vovk Target</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500;700&display=swap" />
+  <link rel="icon" type="image/png" href="images/up-mount.png">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -18,7 +19,10 @@
     </div>
 
     <nav class="hero-nav">
-      <span class="brand">Vovk Digital School</span>
+      <div class="brand-wrap">
+        <img src="images/up-mount.png" alt="logo" class="brand-logo">
+        <span class="brand">Vovk Digital School</span>
+      </div>
       <ul>
         <li><a href="about.html" class="nav-gold">Про мене</a></li>
       </ul>
@@ -32,7 +36,7 @@
         <span class="line"><span class="line-inner">можливо саме цей</span></span>
         <span class="line"><span class="line-inner"> <span class="line-inner__color">scroll</span> змінить твоє <br>життя ?</span></span>
       </h1>
-      <p class="hero-sub">Стань тим ким хочеш вийди на свою гору</p>
+      <p class="hero-sub">Кожна вершина підкорюється не стрибком, а кроком за кроком.</p>
     </div>
 
     <div class="scroll-hint">
@@ -41,8 +45,35 @@
     </div>
   </section>
 
+  <!-- ═══ EXPERIMENT ══════════════════════════════════════ -->
+  <section id="experiment">
+    <div class="exp-inner">
+      <p class="exp-label">Невеликий експеримент</p>
+      <h2 class="exp-title">Почнемо невеликий<br>експеримент</h2>
+      <p class="exp-question">Уявіть, що звичайний аркуш паперу можна скласти навпіл 50 разів. Якою приблизно буде його товщина після 50-го складання?</p>
+      <div class="exp-input-row">
+        <input class="exp-input" id="expInput" type="text" placeholder="Введіть вашу відповідь...">
+        <button class="exp-btn" id="expCheckBtn">Перевірити</button>
+      </div>
+      <div class="exp-answer" id="expAnswer">
+        <div class="exp-answer-body">
+          <p class="exp-ap" id="expAp1"></p>
+          <p class="exp-ap" id="expAp2"></p>
+          <p class="exp-ap" id="expAp3"></p>
+        </div>
+        <span class="exp-cursor" id="expCursor">|</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ ABOUT — alternating text blocks ═════════════════ -->
   <section id="about">
+         <!-- ═══ DECORATIVE DIVIDER ══════════════════════════════════ -->
+  <div class="section-divider">
+    <span class="section-divider__line"></span>
+    <span class="section-divider__gem"></span>
+    <span class="section-divider__line"></span>
+  </div>
     <div class="about-feed">
 
       <div class="a-item from-right">
@@ -105,7 +136,9 @@
     <div class="quiz-feed" id="quizFeed"></div>
 
     <div class="quiz-results" id="results" style="display:none">
-      <h2 class="quiz-results-title">Дякуємо!</h2>
+      <h2 class="quiz-results-title">Твій результат</h2>
+      <div id="resultsTier"></div>
+      <div id="resultsFooter"></div>
       <div class="quiz-summary" id="resultsSummary"></div>
       <button class="quiz-restart" id="restartBtn">Пройти знову</button>
     </div>

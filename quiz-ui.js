@@ -12,7 +12,7 @@ const QuizUI = (() => {
   let locked      = false; // prevents double-clicks during animation
 
   /* ── DOM refs ─────────────────────────────────────────── */
-  let feed, progressFill, currentQEl, totalQEl, resultsEl, summaryEl, prevBtn;
+  let feed, progressFill, currentQEl, totalQEl, resultsEl, summaryEl, prevBtn, tierEl, footerEl;
 
   /* ── Init ─────────────────────────────────────────────── */
   function init() {
@@ -24,6 +24,8 @@ const QuizUI = (() => {
     totalQEl    = document.getElementById('totalQ');
     resultsEl   = document.getElementById('results');
     summaryEl   = document.getElementById('resultsSummary');
+    tierEl      = document.getElementById('resultsTier');
+    footerEl    = document.getElementById('resultsFooter');
     prevBtn     = document.getElementById('prevBtn');
 
     if (!feed || !questions.length) return;
@@ -165,10 +167,66 @@ const QuizUI = (() => {
       resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       locked = false;
     }, 200);
+    setTimeout(() => {
+      gsap.fromTo('.r-tier > *',
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, stagger: 0.1, duration: 0.55, ease: 'power2.out' }
+      );
+      const bar = document.querySelector('.r-tier__bar');
+      if (bar) gsap.to(bar, { width: bar.dataset.pct + '%', duration: 1.4, ease: 'power2.out', delay: 0.25 });
+      gsap.fromTo('.r-foot',
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.6 }
+      );
+    }, 650);
   }
 
-  /* ── Build results summary list ──────────────────────── */
+  /* ── Score & tier helpers ─────────────────────────────── */
+  function calcScore() {
+    return answers.reduce((sum, ans) => sum + (ans != null ? (4 - ans) : 0), 0);
+  }
+
+  function getTier(score) {
+    if (score >= 46) return {
+      badge: '04 / 04', color: 'gold',
+      title: 'Ти вже лідер — потрібен лише інструмент',
+      text:  'Мотивація, дисципліна, готовність вчитись — все є. Ти з тих, хто не просто мріє, а діє. Таргет — це твій інструмент, який підсилить те, що вже є всередині. Питання не в тому, чи зможеш. Питання — коли починаємо.',
+    };
+    if (score >= 31) return {
+      badge: '03 / 04', color: 'silver',
+      title: 'Ти готовий більше, ніж думаєш',
+      text:  'Мотивація є. Бажання є. Є і базові навички для старту. Більшість людей застрягає саме тут — бачать можливість, але ніяк не починають. Ти вже зробив крок, відповівши на ці питання. Далі — простіше.',
+    };
+    if (score >= 16) return {
+      badge: '02 / 04', color: 'bronze',
+      title: 'Ти на порозі змін',
+      text:  'Ти вже бачиш, що хочеш чогось іншого. Ця внутрішня незадоволеність — не слабкість. Це сигнал, що ти готовий рухатись. Небагато потрібно, щоб переступити цю межу і почати будувати нову реальність.',
+    };
+    return {
+      badge: '01 / 04', color: 'dim',
+      title: 'Старт починається тут',
+      text:  'Зараз ти в точці, де все попереду. Немає досвіду — немає страху зробити щось неправильно. Саме з такої точки виходять ті, хто потім дивується, як далеко зайшов. Головне зараз — зробити перший крок і не зупинятись.',
+    };
+  }
+
+  /* ── Build results summary ────────────────────────────── */
   function buildSummary() {
+    const score = calcScore();
+    const tier  = getTier(score);
+    const pct   = Math.round((score / 60) * 100);
+
+    tierEl.innerHTML = `
+      <div class="r-tier r-tier--${tier.color}">
+        <span class="r-tier__badge">${tier.badge}</span>
+        <h3 class="r-tier__title">${tier.title}</h3>
+        <div class="r-tier__bar-wrap">
+          <div class="r-tier__bar" style="width:0%" data-pct="${pct}"></div>
+        </div>
+        <p class="r-tier__score">${score} / 60 балів</p>
+        <p class="r-tier__text">${tier.text}</p>
+      </div>
+    `;
+
     summaryEl.innerHTML = '';
     questions.forEach((q, i) => {
       const answer = answers[i] != null ? q.options[answers[i]] : '—';
@@ -177,6 +235,15 @@ const QuizUI = (() => {
       row.innerHTML = `<div class="r-q">${i + 1}. ${q.q}</div><div class="r-a">${answer}</div>`;
       summaryEl.appendChild(row);
     });
+
+    footerEl.innerHTML = `
+      <div class="r-foot">
+        <div class="r-foot__img-wrap">
+          <img class="r-foot__img" src="images/up-mount.png" alt="">
+        </div>
+        <p class="r-foot__text">ти зможеш вийти нагору завдяки маленьким крокам</p>
+      </div>
+    `;
   }
 
   /* ── Restart ──────────────────────────────────────────── */
@@ -186,6 +253,8 @@ const QuizUI = (() => {
       activeIndex = 0;
       locked = false;
       feed.innerHTML = '';
+      tierEl.innerHTML  = '';
+      footerEl.innerHTML = '';
       appendQuestion(0, 'right');
       updateMeta();
       document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });

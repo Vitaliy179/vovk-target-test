@@ -87,11 +87,10 @@ const QuizAnimations = (() => {
       );
     },
 
-    /* Scroll window so el appears at ~25% from top */
-    scrollToQuestion(el, offset = 0.22) {
+    /* Scroll window so el appears at ~12% from top */
+    scrollToQuestion(el, offset = 0.12) {
       if (window.SMOOTHER) {
-        // Use ScrollSmoother's own smooth scroll
-        window.SMOOTHER.scrollTo(el, true, 'top 22%');
+        window.SMOOTHER.scrollTo(el, true, 'top 12%');
       } else {
         const rect   = el.getBoundingClientRect();
         const target = window.scrollY + rect.top - window.innerHeight * offset;
