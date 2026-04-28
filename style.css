@@ -441,7 +441,7 @@ body {
 .qi {
   max-width: 720px;
   margin: 0 auto;
-  padding: 45px 52px 32px;
+  padding: 45px 52px 38px;
   will-change: transform, opacity;
 }
 .qi-num {
@@ -658,15 +658,46 @@ body {
 }
 
 /* ═══ RESPONSIVE ══════════════════════════════════════════ */
+/* ── Site footer (mobile only) ───────────────────────────── */
+.site-footer {
+  display: none;
+}
+
 @media (max-width: 768px) {
   /* ── Hero ── */
   .hero-nav   { padding: 24px 28px; }
+  .brand-logo { display: none; }
+
+  /* ── Footer ── */
+  .site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 40px 24px 52px;
+    border-top: 1px solid rgba(247, 184, 74, 0.14);
+    background: var(--ink);
+  }
+  .site-footer__logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid rgba(247, 184, 74, 0.55);
+    box-shadow: 0 0 10px rgba(247, 184, 74, 0.2);
+  }
+  .site-footer__name {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
   .hero-title { left: 28px; }
   .scroll-hint { right: 28px; }
 
   /* ── Quiz ── */
   .quiz-header  { padding: 24px 28px 0; }
-  .qi           { padding: 36px 28px 25px; }
+  .qi           { padding: 36px 28px 30px; }
   .quiz-results { padding: 60px 28px; }
   #quiz         { padding-bottom: 80px; }
 
@@ -704,7 +735,7 @@ body {
 
   /* ── Quiz ── */
   .quiz-header  { padding: 20px 20px 0; }
-  .qi           { padding: 30px 20px 21px; }
+  .qi           { padding: 30px 20px 25px; }
   .quiz-results { padding: 48px 20px; }
   .option       { padding: 16px 0; font-size: 14px; }
   .quiz-prev    { padding: 12px 0; }
