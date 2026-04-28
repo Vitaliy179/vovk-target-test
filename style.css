@@ -94,10 +94,7 @@ body {
   /* color: rgba(255, 255, 255, 0.35); */
   color: var(--gold);
 }
-.k {
-  color: var(--gold);
-  font-size: 50px;
-}
+
 .hero-nav ul {
   display: flex;
   gap: 32px;
@@ -112,7 +109,10 @@ body {
   transition: color 0.4s;
 }
 .hero-nav a:hover { color: rgba(255, 255, 255, 0.65); }
-.hero-nav a.nav-gold { color: var(--gold); }
+.hero-nav a.nav-gold {
+  color: var(--gold);
+  font-size: 10px;
+}
 .hero-nav a.nav-gold:hover { color: var(--gold); opacity: 0.8; }
 
 /* ── Hero title ── */
@@ -338,6 +338,7 @@ body {
 /* Left-slide items flip the columns: number then body */
 .a-item.from-left {
   grid-template-columns: 120px 1fr;
+  gap: 0 72px;
 }
 
 .a-num {
@@ -371,8 +372,6 @@ body {
   max-width: 500px;
 }
 
-/* Left-slide: text sits on right, so max-width aligns to right edge */
-.a-item.from-left .a-text { margin-left: auto; }
 
 /* ═══ QUIZ ══════════════════════════════════════════════════ */
 #quiz {
@@ -564,11 +563,10 @@ body {
   .a-item,
   .a-item.from-left {
     grid-template-columns: 1fr;
-    gap: 12px 0;
+    gap: 0;
   }
-  .a-item.from-right .a-num { text-align: left; }
-  .a-num { font-size: 3.5rem; }
-  .a-item.from-left .a-num  { order: -1; }
+  .a-num { font-size: 3.5rem; text-align: left; margin-bottom: 24px; }
+  .a-item.from-right .a-num { order: -1; }
   .a-item.from-left .a-text { margin-left: 0; }
 }
 
@@ -659,7 +657,37 @@ body {
   transition: color 0.4s;
 }
 .page-nav a:hover  { color: rgba(255, 255, 255, 0.82); }
-.page-nav a.is-active { color: var(--gold); }
+.page-nav a.is-active { color: var(--gold); font-size: 10px; }
+
+/* ── Decorative divider ───────────────────────────────────── */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 56px 72px 78px;
+}
+.section-divider__line {
+  flex: 1;
+  max-width: 260px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(247,184,74,0.65), transparent);
+  box-shadow: 0 0 8px rgba(247,184,74,0.25);
+}
+.section-divider__line:last-child {
+  background: linear-gradient(to left, transparent, rgba(247,184,74,0.65), transparent);
+}
+.section-divider__gem {
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow:
+    0 0 0 3px rgba(247,184,74,0.15),
+    0 0 18px rgba(247,184,74,0.7),
+    0 0 36px rgba(247,184,74,0.25);
+  flex-shrink: 0;
+}
 
 /* ── #about-hero — fullscreen, text left / photo right ──── */
 #about-hero {

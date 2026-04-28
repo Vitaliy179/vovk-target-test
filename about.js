@@ -62,7 +62,7 @@ const AboutPage = (() => {
   /* ── Split blocks: photo and text slide from opposite sides ─ */
   function initSplitBlocks() {
     const isTouch = ScrollTrigger.isTouch === 1;
-    const off = isTouch ? 60 : 132;
+    const off = isTouch ? 90 : 220;
 
     document.querySelectorAll('.split-block').forEach(block => {
       const photo = block.querySelector('.split-photo');
@@ -73,26 +73,26 @@ const AboutPage = (() => {
       const xText  = isRev ? -off : off;
 
       gsap.fromTo(photo,
-        { x: xPhoto, opacity: 0 },
-        { x: 0, opacity: 1,
+        { x: xPhoto, opacity: 0, scale: 0.96 },
+        { x: 0, opacity: 1, scale: 1,
           scrollTrigger: {
             trigger: block,
-            start: 'top 85%',
-            end:   'top 25%',
-            scrub: 0.8,
+            start: 'top 68%',
+            end:   'top 10%',
+            scrub: 0.5,
             invalidateOnRefresh: true,
           }
         }
       );
 
       gsap.fromTo(text,
-        { x: xText, opacity: 0 },
-        { x: 0, opacity: 1,
+        { x: xText, opacity: 0, scale: 0.96 },
+        { x: 0, opacity: 1, scale: 1,
           scrollTrigger: {
             trigger: block,
-            start: 'top 85%',
-            end:   'top 25%',
-            scrub: 0.8,
+            start: 'top 68%',
+            end:   'top 10%',
+            scrub: 0.5,
             invalidateOnRefresh: true,
           }
         }
