@@ -865,20 +865,6 @@ body {
   z-index: 0;
 }
 
-#about-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 112px;
-  background: linear-gradient(to bottom,
-    transparent 0%,
-    rgba(36,17,6,0.38) 50%,
-    rgba(36,17,6,0.72) 80%,
-    #241106 100%
-  );
-  z-index: 3;
-  pointer-events: none;
-}
 
 .ah-grid {
   display: grid;
