@@ -97,10 +97,12 @@
       const p1b = "149 мільйонів кілометрів.";
       const p2  = "Сенс цього експерименту в тому, що наш мозок не бачить усю велич нашого потенціалу — він не здатний інтуїтивно оцінити масштаб експоненційного зростання.";
       const p3  = "Так само і в житті: ти не бачиш потенціалу маленьких дій у моменті. Але регулярне повторення однієї дії щодня здатне підняти тебе до результатів, які сьогодні здаються недосяжними.";
+      const p4  = "Добре подумайте над цим фактом 😊";
 
       const ap1    = document.getElementById('expAp1');
       const ap2    = document.getElementById('expAp2');
       const ap3    = document.getElementById('expAp3');
+      const ap4    = document.getElementById('expAp4');
       const cursor = document.getElementById('expCursor');
 
       const plain1 = document.createElement('span');
@@ -113,9 +115,11 @@
       typeInto(plain1, p1a, SPEED, () =>
         typeInto(gold1, p1b, SPEED, () =>
           typeInto(ap2, p2, SPEED, () =>
-            typeInto(ap3, p3, SPEED, () => {
-              cursor.classList.add('hidden');
-            })
+            typeInto(ap3, p3, SPEED, () =>
+              typeInto(ap4, p4, SPEED, () => {
+                cursor.classList.add('hidden');
+              })
+            )
           )
         )
       );
