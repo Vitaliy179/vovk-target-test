@@ -750,6 +750,68 @@ body {
   .about-feed   { padding: 0 20px; gap: 56px; }
 }
 
+/* ═══ iPhone 16 Pro Max (430px) & iPhone 16 Plus ════════════════════ */
+@media (max-width: 430px) {
+  /* ── Hero ── */
+  .hero-nav      { padding: 14px 20px; }
+  .hero-title    { left: 22px; right: 22px; }
+  .hero-title h1 { font-size: clamp(2rem, 9.5vw, 2.75rem); }
+  .hero-sub      { font-size: 10px; letter-spacing: 0.16em; }
+  .scroll-hint   { right: 22px; bottom: 30px; }
+
+  /* ── Quiz ── */
+  .quiz-header   { padding: 20px 22px 0; }
+  .qi            { padding: 30px 22px 26px; }
+  .quiz-results  { padding: 50px 22px; }
+  .option        { padding: 17px 0; min-height: 52px; }
+  #quiz          { padding-bottom: 72px; }
+
+  /* ── Головна: секції ── */
+  #pro-mene   { padding: 64px 0 76px; }
+  .pm-wrap    { padding: 0 22px; }
+  #about      { padding: 60px 0 68px; }
+  .about-feed { padding: 0 22px; gap: 60px; }
+  #experiment { padding: 60px 22px; }
+
+  /* ── Сторінка "Про мене" ── */
+  .page-nav                    { padding: 14px 18px; }
+  .ast-inner, .aq-inner,
+  .acn-inner, .aс-inner        { padding: 0 22px; }
+  .split-text,
+  .split-block.rev .split-text { padding: 46px 22px; }
+  .ah-text-col                 { padding: 110px 22px 56px; }
+  .split-photo                 { min-height: 62vw; }
+}
+
+/* ═══ iPhone 16 Pro (393px) & iPhone 16 ═════════════════════════════ */
+@media (max-width: 393px) {
+  .hero-title h1 { font-size: clamp(1.95rem, 9.8vw, 2.55rem); }
+  .qi-text       { font-size: clamp(1.45rem, 7vw, 1.9rem); }
+  .ah-line-inner { font-size: clamp(2.3rem, 10.5vw, 3.2rem); }
+  .ah-text-col   { padding: 108px 20px 52px; }
+}
+
+/* ═══ Safe-area insets — Dynamic Island (top) / Home Indicator (bottom) ═ */
+@supports (padding: env(safe-area-inset-top)) {
+  @media (max-width: 430px) {
+    .hero-nav {
+      padding-top: max(14px, env(safe-area-inset-top));
+    }
+    .page-nav {
+      padding-top: max(14px, env(safe-area-inset-top));
+    }
+    .scroll-hint {
+      bottom: max(28px, calc(16px + env(safe-area-inset-bottom)));
+    }
+    #quiz {
+      padding-bottom: max(72px, calc(52px + env(safe-area-inset-bottom)));
+    }
+    .site-footer {
+      padding-bottom: max(52px, calc(36px + env(safe-area-inset-bottom)));
+    }
+  }
+}
+
 /* Дуже вузькі екрани (≤380px): прибираємо nav-посилання, залишаємо бренд */
 @media (max-width: 380px) {
   .hero-nav ul { display: none; }
