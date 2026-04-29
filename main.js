@@ -73,6 +73,8 @@
       typing = true;
       btn.disabled = true;
 
+      document.getElementById('expUserAns').textContent = input.value.trim();
+
       const correct = isCorrect(input.value);
 
       gsap.set(answer, { display: 'block' });

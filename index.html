@@ -48,7 +48,7 @@
   <!-- ═══ EXPERIMENT ══════════════════════════════════════ -->
   <section id="experiment">
     <div class="exp-inner">
-      <p class="exp-label">Невеликий експеримент</p>
+      <p class="exp-label">Це важливе питання.</p>
       <h2 class="exp-title">Почнемо невеликий<br>експеримент</h2>
       <p class="exp-question">Уявіть, що звичайний аркуш паперу можна скласти навпіл 50 разів. Якою приблизно буде його товщина після 50-го складання?</p>
       <div class="exp-input-row">
@@ -56,6 +56,17 @@
         <button class="exp-btn" id="expCheckBtn">Перевірити</button>
       </div>
       <div class="exp-answer" id="expAnswer">
+        <div class="exp-compare" id="expCompare">
+          <div class="exp-compare-row">
+            <span class="exp-compare-label">Твоя відповідь</span>
+            <span class="exp-compare-user" id="expUserAns"></span>
+          </div>
+          <div class="exp-compare-row">
+            <span class="exp-compare-label">Правильна відповідь</span>
+            <span class="exp-compare-correct">149 000 000 км</span>
+          </div>
+        </div>
+        <div class="exp-compare-divider"></div>
         <div class="exp-answer-body">
           <p class="exp-ap" id="expAp1"></p>
           <p class="exp-ap" id="expAp2"></p>
