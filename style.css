@@ -953,10 +953,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(to right,
-    rgba(36,17,6,0.72) 0%,
-    rgba(36,17,6,0.45) 10%,
-    rgba(36,17,6,0.20) 22%,
-    rgba(36,17,6,0.06) 34%,
+    rgba(36,17,6,0.36) 0%,
+    rgba(36,17,6,0.22) 10%,
+    rgba(36,17,6,0.10) 22%,
+    rgba(36,17,6,0.03) 34%,
     transparent 46%
   );
   z-index: 1;
@@ -1358,14 +1358,7 @@ body {
     order: 0;
   }
   .ah-photo-col::before {
-    background: linear-gradient(
-      to bottom,
-      rgba(5,7,10,0.97) 0%,
-      rgba(5,7,10,0.65) 28%,
-      rgba(5,7,10,0.28) 52%,
-      rgba(5,7,10,0.62) 75%,
-      rgba(5,7,10,0.92) 100%
-    );
+    background: rgba(5,7,10,0.20);
   }
   .ah-photo-col::after { display: none; }
   .ah-photo-col img { position: absolute; -webkit-mask-image: none; mask-image: none; }
