@@ -367,7 +367,6 @@ body {
 /* For right-slide items the number is on the right → text-right */
 .a-item.from-right .a-num { text-align: right; }
 
-.a-body {}
 
 .a-title {
   font-family: var(--serif);
@@ -866,6 +865,21 @@ body {
   z-index: 0;
 }
 
+#about-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 112px;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(36,17,6,0.38) 50%,
+    rgba(36,17,6,0.72) 80%,
+    #241106 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
 .ah-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -952,7 +966,13 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(13,8,4,0.5) 0%, transparent 28%);
+  background: linear-gradient(to right,
+    rgba(36,17,6,0.72) 0%,
+    rgba(36,17,6,0.45) 10%,
+    rgba(36,17,6,0.20) 22%,
+    rgba(36,17,6,0.06) 34%,
+    transparent 46%
+  );
   z-index: 1;
   pointer-events: none;
 }
